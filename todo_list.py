@@ -1,14 +1,16 @@
-def addTask():
+taskDict = {}
+
+def addTask(user): #adds user-input name, and automatically sets it to incomplete
+    taskDict[user] = 'incomplete'
+
+def viewTasks():
     hi
 
-def viewTask():
-    hi
+def markCompleted(user): #usese .update() function to change task from 'incomplete' to 'complete
+    taskDict.update({user: 'complete'})
 
-def markCompleted():
-    hi
-
-def delTask():
-    hi
+def delTask(user): #pops (deletes) the selected item from the dict
+    taskDict.pop(user)
 
 def main():
     loop = True
@@ -24,8 +26,7 @@ def main():
             user = input("What is the name of your task to delete? >> ")
             delTask(user)
         elif user == 'V':
-            user = input("What is the name of your task to view? >> ")
-            viewTask(user)
+            viewTasks()
         elif user == 'end':
             print("Exiting the program o/")
             loop = False
