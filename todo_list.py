@@ -4,7 +4,8 @@ def addTask(user): #adds user-input name, and automatically sets it to incomplet
     taskDict[user] = 'incomplete'
 
 def viewTasks():
-    hi
+    for key, value in taskDict.items():
+        print(f"Task: {key}. Status: {value}")
 
 def markCompleted(user): #usese .update() function to change task from 'incomplete' to 'complete
     taskDict.update({user: 'complete'})
