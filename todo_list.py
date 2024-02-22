@@ -13,10 +13,15 @@ def markCompleted(user): #usese .update() function to change task from 'incomple
 def delTask(user): #pops (deletes) the selected item from the dict
     taskDict.pop(user)
 
+def save_to_file():
+    out_file = open("./output.txt", "w")
+    for key, value in taskDict.items():
+        out_file.write(f"Task: {key}. Status: {value}\n")
+
 def main():
     loop = True
     while loop:
-        user = input("What would you like to do? Enter 'A' to add a task, 'C' to mark completed, 'D' to delete, and 'V' to view. To end, type 'end'. >> ")
+        user = input("What would you like to do? Enter 'A' to add a task, 'C' to mark completed, 'D' to delete, and 'V' to view. O to output tasks to a file. To end, type 'end'. >> ")
         if user == 'A':
             user = input("What is the name of your task to add? >> ")
             addTask(user)
@@ -28,6 +33,8 @@ def main():
             delTask(user)
         elif user == 'V':
             viewTasks()
+        elif user == 'O':
+            save_to_file()
         elif user == 'end':
             print("Exiting the program o/")
             loop = False
